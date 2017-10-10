@@ -612,22 +612,7 @@ void do_game_logic(void)
 	if (KEY_DOWN(VK_RIGHT))
 		hero.move(MOVE_RIGHT);
 
-
-	//利甸 贸府 
-	for (int i = 0; i<ENEMY_NUM; i++)
-	{
-		if (enemy[i].y_pos > 500)
-		{
-			enemy[i].init((float)(rand() % 300), rand() % 200 - 300);
-		}
-		else
-		{
-			enemy[i].move();
-		}
-	}
-
-
-	//醚舅 贸府 
+	//林牢傍 醚舅 贸府 
 	if (bullet.show() == false)
 	{
 		if (KEY_DOWN(VK_SPACE))
@@ -657,6 +642,23 @@ void do_game_logic(void)
 	}
 
 
+	//利甸 贸府 
+	for (int i = 0; i<ENEMY_NUM; i++)
+	{
+		if (enemy[i].y_pos > 500)
+		{
+			enemy[i].init((float)(rand() % 300), rand() % 200 - 300);
+		}
+		else
+		{
+			enemy[i].move();
+		}
+	}
+
+
+
+
+
 	if (Superbullet.show() == false)
 	{
 		if (KEY_DOWN(0x5A))
@@ -679,7 +681,6 @@ void do_game_logic(void)
 			if (Superbullet.check_collision(enemy[i].x_pos, enemy[i].y_pos) == true)
 			{
 				enemy[i].init((float)(rand() % 400), rand() % 300 - 300);
-
 			}
 		}
 	}
